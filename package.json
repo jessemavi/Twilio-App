@@ -1,0 +1,26 @@
+{
+  "name": "twilio-chat",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "chance": "^1.0.13",
+    "classnames": "^2.2.5",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "twilio": "^3.11.0",
+    "twilio-chat": "^1.1.1"
+  },
+  "devDependencies": {
+    "react-scripts": "1.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:3001"
+}
