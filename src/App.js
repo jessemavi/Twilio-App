@@ -63,22 +63,19 @@ class App extends Component {
 
   joinGeneralChannel = async (chatClient) => {
     try {
-      const subscribedChannels = await chatClient.getSubscribedChannels();
-      console.log('subscribedChannels', subscribedChannels);
-      try {
-        const channel = await chatClient.getChannelByUniqueName('general');
-        this.addMessage({ body: 'Joining general channel...' })
-        this.setState({ channel })
+      await chatClient.getSubscribedChannels();
 
-        await channel.join();
-        this.addMessage({ body: `Joined general channel as ${this.state.username}` })
-        window.addEventListener('beforeunload', () => channel.leave())
-        return channel;
-      } catch(err) {
-        return this.createGeneralChannel(chatClient)
-      }
+      const channel = await chatClient.getChannelByUniqueName('general');
+      this.addMessage({ body: 'Joining general channel...' })
+      this.setState({ channel })
+
+      await channel.join();
+      this.addMessage({ body: `Joined general channel as ${this.state.username}` })
+      window.addEventListener('beforeunload', () => channel.leave())
+      return channel;
     } catch(err) {
       console.log(err);
+      return this.createGeneralChannel(chatClient)
     }
   }
 
